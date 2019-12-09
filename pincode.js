@@ -1,5 +1,29 @@
 function getPINs(observed) {
-    //todo
+    const observed_arr = observed.split('');
+
+    observed_arr.reduce((final_arr, current_value, current_index) => {
+            if (final_arr.length == 0) {
+                return key_map[current_value];
+            } else {
+
+                for (let i in final_arr) {
+                    var new_element = []
+
+                    for (let j in key_map[current_value]) {
+                        var bufer = [];
+                        bufer = bufer.concat(i, j);
+                        new_element.push(bufer);
+                    }
+
+                    i = new_element;
+
+                }
+
+                return final_arr;
+
+            });
+    }
+}, [])
 }
 
 var key_map = [
