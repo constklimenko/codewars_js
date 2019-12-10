@@ -1,33 +1,27 @@
 function getPINs(observed) {
     let observed_arr = observed.split('');
 
-    observed_arr = observed_arr.reduce((final_arr, current_value, current_index) => {
-        if (final_arr.length == 0) {
-            return key_map[current_value];
-        } else {
-
-            for (let i in final_arr) {
-                var new_element = []
-
-                for (let j in key_map[current_value]) {
-                    var bufer = [];
-                    bufer = bufer.concat(i, j);
-                    new_element.push(bufer);
-                }
-
-                i = new_element;
-
-            }
-
-            return final_arr;
-
-        }
 
 
-    }, [])
 
-    console.log(observed_arr)
 }
+
+function plus_next_number(current_number, string, key_map) {
+    arr = string.split('');
+    plused_arr = key_map[current_number];
+    growing_arr = [];
+    for (let plused_number of plused_arr) {
+        let bufer_arr = [plused_number];
+
+        bufer_arr = arr.concat(bufer_arr)
+
+        growing_arr.push(bufer_arr.join(''))
+    }
+
+    return growing_arr
+}
+
+
 
 
 var key_map = [
@@ -42,7 +36,8 @@ var key_map = [
     [6, 8, 9]
 ];
 
-getPINs('111')
+console.log(plus_next_number(3, '34', key_map))
+    // getPINs('143')
 
 
 // describe('example tests', function() {
