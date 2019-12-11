@@ -1,22 +1,45 @@
 function getPINs(observed) {
     let observed_arr = observed.split('');
+    console.log(`observed_arr - ${observed_arr}`)
+    let growing_arr = key_map[observed_arr[0]];
+    console.log(`growing_arr - ${growing_arr}`)
+    for (let i = 1; i < observed_arr.length; i++) {
+        growing_arr = plus_next_number(observed_arr[i], growing_arr, key_map);
+        console.log(`growing_arr - ${growing_arr}`)
+    };
+
+    return growing_arr;
 
 
 
 
 }
 
-function plus_next_number(current_number, string, key_map) {
-    arr = string.split('');
+function plus_next_number(current_number, input_arr, key_map) {
     plused_arr = key_map[current_number];
+    console.log(`plused_arr - ${plused_arr}`)
     growing_arr = [];
-    for (let plused_number of plused_arr) {
-        let bufer_arr = [plused_number];
+    console.log(`growing_arr - ${growing_arr}`);
 
-        bufer_arr = arr.concat(bufer_arr)
+    for (let string of input_arr) {
+        if (string.length >= 2) {
+            var arr = string.split('');
+        } else {
+            var arr = [string];
+        }
 
-        growing_arr.push(bufer_arr.join(''))
+
+        for (let plused_number of plused_arr) {
+            let bufer_arr = [plused_number];
+
+            bufer_arr = arr.concat(bufer_arr);
+
+            growing_arr.push(bufer_arr.join(''));
+            console.log(`growing_arr - ${growing_arr}`);
+        }
     }
+
+
 
     return growing_arr
 }
@@ -25,19 +48,20 @@ function plus_next_number(current_number, string, key_map) {
 
 
 var key_map = [
-    [0, 8],
+    [8, 0],
     [1, 2, 4],
     [1, 2, 3, 5],
     [2, 3, 6],
     [1, 4, 5, 7],
     [2, 4, 5, 6, 8],
+    [3, 5, 6, 9],
     [4, 7, 8],
-    [0, 5, 7, 8, 9],
+    [5, 7, 8, 9, 0],
     [6, 8, 9]
 ];
 
-console.log(plus_next_number(3, '34', key_map))
-    // getPINs('143')
+//console.log(plus_next_number(3, ['34', '56'], key_map))
+console.log(getPINs('11'))
 
 
 // describe('example tests', function() {
