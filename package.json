@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/narcomacer/codewars_js/issues"
   },
-  "homepage": "https://github.com/narcomacer/codewars_js#readme"
+  "homepage": "https://github.com/narcomacer/codewars_js#readme",
+  "dependencies": {
+    "gulp": "^4.0.2"
+  }
 }
